@@ -9,7 +9,12 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 
-app.use(cors());
+app.use(cors({
+    origin: "https://dingmei-backend.onrender.com/", // 或者設定前端網址，如 "https://dingmei.onrender.com"
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type"]
+}));
+
 app.use(express.json());
 
 // 讀取/寫入 DB
